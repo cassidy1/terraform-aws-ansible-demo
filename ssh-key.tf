@@ -9,7 +9,7 @@ resource "tls_private_key" "ssh" {
 }
 
 resource "local_file" "private_key" {
-  sensitive_content         = tls_private_key.ssh.private_key_pem
+  local_sensitive_file         = tls_private_key.ssh.private_key_pem
   filename        = "ssh-key.pem"
   file_permission = "0600"
   provisioner "local-exec" {
@@ -18,7 +18,7 @@ resource "local_file" "private_key" {
 }
 
 resource "local_file" "public_key" {
-  sensitive_content         = tls_private_key.ssh.public_key_openssh
+  local_sensitive_file         = tls_private_key.ssh.public_key_openssh
   filename        = "ssh-key-public.pem"
   file_permission = "0600"
 }
