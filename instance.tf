@@ -1,5 +1,5 @@
 resource "aws_instance" "server" {
-  for_each                    = toset(["web1", "web2", "web3"])
+  for_each                    = toset(["webA", "webB", "webC"])
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = "t3.micro"
   key_name                    = aws_key_pair.aws_key.key_name
